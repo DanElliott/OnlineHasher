@@ -1,0 +1,54 @@
+@page "/"
+
+    <EditForm Model="@hasherModel" OnValidSubmit="HandleValidSubmit">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <label for="password">Password</label>
+        <InputText type="text" id="password" name="password" @bind-Value="hasherModel.Password" placeholder="Password" required autofocus />
+        <br />
+
+        <label for="salt">Salt (optional)</label>
+        <InputText type="text" id="salt" name="salt" @bind-Value="hasherModel.Salt" placeholder="Salt" />
+        <br />
+
+        <input type="submit" value="Generate hash" />
+    </EditForm>
+
+@if (!string.IsNullOrWhiteSpace(hasherModel.Hash))
+{
+    <label for="hash">Hash</label>
+    <output contenteditable="true" id="hash">@hasherModel.Hash</output>
+}
+
+@code {
+    private HasherModel hasherModel = new HasherModel();
+
+    private void HandleValidSubmit()
+    {
+        if (!string.IsNullOrEmpty(hasherModel.Password))
+        {
+            byte[] saltBytes = string.IsNullOrWhiteSpace(hasherModel.Salt) ? new byte[0] : Encoding.UTF8.GetBytes(hasherModel.Salt);
+
+            byte[] hashBytes = KeyDerivation.Pbkdf2(
+                password: hasherModel.Password,
+                salt: saltBytes,
+                prf: KeyDerivationPrf.HMACSHA1,
+                iterationCount: 1000,
+                numBytesRequested: 256 / 8
+            );
+
+            hasherModel.Hash = BitConverter.ToString(hashBytes).Replace("-", string.Empty);
+        }
+    }
+
+    public class HasherModel
+    {
+        [Required]
+        public string Password { get; set; }
+
+        public string Salt { get; set; }
+
+        public string Hash { get; set; }
+    }
+}
