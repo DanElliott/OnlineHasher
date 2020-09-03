@@ -8,27 +8,25 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
-    - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1.6.0
-      with:
-        dotnet-version: 3.1.301
-    - name: Publish with dotnet
-      run: dotnet publish --configuration Release --output release --nologo
+
+    - name: Publish app
+      run: dotnet publish -c Release
+
     - name: Rewrite base href
       uses: SteveSandersonMS/ghaction-rewrite-base-href@v1
       with:
         html_path: ${{ env.PUBLISH_DIR }}/index.html
         base_href: /OnlineHasher/
-    - name: Add .nojekyll file
-      run: touch ${{ env.PUBLISH_DIR }}/.nojekyll
-    - name: Deploy 🚀
-      uses: JamesIves/github-pages-deploy-action@3.5.9
+
+    - name: GitHub Pages
+      if: success()
+      uses: crazy-max/ghaction-github-pages@v2
       with:
+        target_branch: gh-pages
+        build_dir: ${{ env.PUBLISH_DIR }}
+        jekyll: false
+      env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        BRANCH: gh-pages
-        FOLDER: ${{ env.PUBLISH_DIR }}
