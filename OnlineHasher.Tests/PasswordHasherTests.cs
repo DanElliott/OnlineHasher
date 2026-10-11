@@ -11,28 +11,37 @@ public class PasswordHasherTests
 
     [Fact]
     public void Hash_WithPasswordAndSalt_ReturnsPbkdf2Hex() =>
-        Assert.Equal(Expected("password", "salt"), PasswordHasher.Hash("password", "salt"));
+        Assert.Equal(Expected("password", "salt"), PasswordHasher.Hash("password", "salt").Hash);
 
     [Theory]
     [InlineData(null)]
     [InlineData("")]
     [InlineData("   ")]
     public void Hash_WithBlankSalt_UsesEmptySalt(string salt) =>
-        Assert.Equal(Expected("password", ""), PasswordHasher.Hash("password", salt));
+        Assert.Equal(Expected("password", ""), PasswordHasher.Hash("password", salt).Hash);
 
     [Fact]
     public void Hash_IsDeterministicAndSaltSensitive()
     {
-        var a = PasswordHasher.Hash("pw", "s1");
+        var a = PasswordHasher.Hash("pw", "s1").Hash;
 
-        Assert.Equal(a, PasswordHasher.Hash("pw", "s1"));
-        Assert.NotEqual(a, PasswordHasher.Hash("pw", "s2"));
+        Assert.Equal(a, PasswordHasher.Hash("pw", "s1").Hash);
+        Assert.NotEqual(a, PasswordHasher.Hash("pw", "s2").Hash);
         Assert.Equal(64, a.Length);
     }
 
     [Theory]
     [InlineData(null)]
     [InlineData("")]
-    public void Hash_WithoutPassword_Throws(string password) =>
-        Assert.Throws<ArgumentException>(() => PasswordHasher.Hash(password, "salt"));
+    public void Hash_WithoutPassword_Fails(string password)
+    {
+        var result = PasswordHasher.Hash(password, "salt");
+
+        Assert.False(result.IsSuccess);
+        Assert.Equal("Password is required.", result.Error);
+    }
+
+    [Fact]
+    public void Hash_WithWhitespacePassword_Succeeds() =>
+        Assert.Equal(Expected("   ", "salt"), PasswordHasher.Hash("   ", "salt").Hash);
 }
