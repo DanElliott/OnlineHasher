@@ -19,7 +19,7 @@ namespace OnlineHasher
         {
             if (string.IsNullOrEmpty(password))
             {
-                return HashResult.Failure("Password is required.");
+                return new HashResult.Failure("Password is required.");
             }
 
             byte[] saltBytes = string.IsNullOrWhiteSpace(salt) ? Array.Empty<byte>() : Encoding.UTF8.GetBytes(salt);
@@ -27,16 +27,17 @@ namespace OnlineHasher
             byte[] hashBytes = Rfc2898DeriveBytes.Pbkdf2(
                 Encoding.UTF8.GetBytes(password), saltBytes, Iterations, HashAlgorithmName.SHA1, HashLength);
 
-            return HashResult.Success(Convert.ToHexString(hashBytes));
+            return new HashResult.Success(Convert.ToHexString(hashBytes));
         }
     }
 
-    public sealed record HashResult(string Hash, string Error)
+    /// <summary>Closed hierarchy: a result is exactly a <see cref="Success"/> or a <see cref="Failure"/>.</summary>
+    public abstract record HashResult
     {
-        public bool IsSuccess => Error is null;
+        private HashResult() { }
 
-        public static HashResult Success(string hash) => new(hash, null);
+        public sealed record Success(string Hash) : HashResult;
 
-        public static HashResult Failure(string error) => new(null, error);
+        public sealed record Failure(string Error) : HashResult;
     }
 }
