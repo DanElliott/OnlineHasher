@@ -1,0 +1,15 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch Blazor WebAssembly (Edge)",
+      "type": "blazorwasm",
+      "request": "launch",
+      "preLaunchTask": "watch: OnlineHasher",
+      "cwd": "${workspaceFolder}/OnlineHasher",
+      "url": "http://localhost:1733",
+      "browser": "edge",
+      "timeout": 60000
+    }
+  ]
+}
