@@ -6,9 +6,11 @@
     "configurations": [
         {
             "name": "C#: OnlineHasher Debug",
-            "type": "dotnet",
+            "type": "msedge",
             "request": "launch",
-            "projectPath": "${workspaceFolder}/OnlineHasher/OnlineHasher.csproj"
+            "url": "http://localhost:1722",
+            "webRoot": "${workspaceFolder}/OnlineHasher/wwwroot",
+            "preLaunchTask": "run-onlinehasher"
         },
         {
             "type": "msedge",
