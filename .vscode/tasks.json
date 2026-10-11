@@ -1,0 +1,29 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "run-onlinehasher",
+            "type": "process",
+            "command": "dotnet",
+            "args": [
+                "run",
+                "--project",
+                "${workspaceFolder}/OnlineHasher/OnlineHasher.csproj",
+                "--launch-profile",
+                "OnlineHasher"
+            ],
+            "isBackground": true,
+            "problemMatcher": {
+                "owner": "dotnet-run",
+                "pattern": {
+                    "regexp": "^$"
+                },
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": "^\\s*Building\\.\\.\\.",
+                    "endsPattern": "Application started\\."
+                }
+            }
+        }
+    ]
+}
