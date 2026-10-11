@@ -29,7 +29,9 @@ public class IndexPageTests : TestContext
     {
         var cut = Submit("password", "salt");
 
-        Assert.Equal(PasswordHasher.Hash("password", "salt").Hash, cut.Find("#hash").TextContent);
+        Assert.Equal(
+            "6E88BE8BAD7EAE9D9E10AA061224034FED48D03FCBAD968B56006784539D5214",
+            cut.Find("#hash").TextContent);
     }
 
     [Fact]

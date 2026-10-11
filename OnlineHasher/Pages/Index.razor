@@ -3,7 +3,7 @@
     <EditForm Model="@hasherModel" OnSubmit="HandleSubmit">
 
         <label for="password">Password</label>
-        <InputText type="text" id="password" name="password" @bind-Value="hasherModel.Password" placeholder="Password" required autofocus />
+        <InputText type="text" id="password" name="password" @bind-Value="hasherModel.Password" placeholder="Password" autofocus />
         <br />
 
         <label for="salt">Salt (optional)</label>
@@ -13,14 +13,15 @@
         <input type="submit" value="Generate hash" />
     </EditForm>
 
-@if (result is { IsSuccess: true })
+@switch (result)
 {
-    <label for="hash">Hash</label>
-    <output contenteditable="true" id="hash">@result.Hash</output>
-}
-else if (result is not null)
-{
-    <div id="error" role="alert">@result.Error</div>
+    case HashResult.Success success:
+        <label for="hash">Hash</label>
+        <output contenteditable="true" id="hash">@success.Hash</output>
+        break;
+    case HashResult.Failure failure:
+        <div id="error" role="alert">@failure.Error</div>
+        break;
 }
 
 @code {
