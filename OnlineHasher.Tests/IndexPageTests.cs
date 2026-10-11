@@ -29,15 +29,16 @@ public class IndexPageTests : TestContext
     {
         var cut = Submit("password", "salt");
 
-        Assert.Equal(PasswordHasher.Hash("password", "salt"), cut.Find("#hash").TextContent);
+        Assert.Equal(PasswordHasher.Hash("password", "salt").Hash, cut.Find("#hash").TextContent);
     }
 
     [Fact]
-    public void Submit_WithoutPassword_FailsValidationAndShowsNoHash()
+    public void Submit_WithoutPassword_ShowsErrorAndNoHash()
     {
         var cut = Submit("", "salt");
 
         Assert.Empty(cut.FindAll("#hash"));
+        Assert.Equal("Password is required.", cut.Find("#error").TextContent);
     }
 }
 

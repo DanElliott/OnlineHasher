@@ -1,8 +1,6 @@
 @page "/"
 
-    <EditForm Model="@hasherModel" OnValidSubmit="HandleValidSubmit">
-        <DataAnnotationsValidator />
-        <ValidationSummary />
+    <EditForm Model="@hasherModel" OnSubmit="HandleSubmit">
 
         <label for="password">Password</label>
         <InputText type="text" id="password" name="password" @bind-Value="hasherModel.Password" placeholder="Password" required autofocus />
@@ -15,24 +13,27 @@
         <input type="submit" value="Generate hash" />
     </EditForm>
 
-@if (!string.IsNullOrWhiteSpace(hash))
+@if (result is { IsSuccess: true })
 {
     <label for="hash">Hash</label>
-    <output contenteditable="true" id="hash">@hash</output>
+    <output contenteditable="true" id="hash">@result.Hash</output>
+}
+else if (result is not null)
+{
+    <div id="error" role="alert">@result.Error</div>
 }
 
 @code {
     private HasherModel hasherModel = new HasherModel();
-    private string hash;
+    private HashResult result;
 
-    private void HandleValidSubmit()
+    private void HandleSubmit()
     {
-        hash = PasswordHasher.Hash(hasherModel.Password, hasherModel.Salt);
+        result = PasswordHasher.Hash(hasherModel.Password, hasherModel.Salt);
     }
 
     public class HasherModel
     {
-        [Required]
         public string Password { get; set; }
 
         public string Salt { get; set; }

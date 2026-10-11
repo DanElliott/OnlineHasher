@@ -13,12 +13,13 @@ namespace OnlineHasher
         /// <summary>
         /// PBKDF2 (HMAC-SHA1, 1000 iterations, 32 bytes) as uppercase hex.
         /// A null, empty or whitespace salt is treated as no salt.
+        /// A null or empty password fails; whitespace is a valid password.
         /// </summary>
-        public static string Hash(string password, string salt)
+        public static HashResult Hash(string password, string salt)
         {
             if (string.IsNullOrEmpty(password))
             {
-                throw new ArgumentException("Password is required.", nameof(password));
+                return HashResult.Failure("Password is required.");
             }
 
             byte[] saltBytes = string.IsNullOrWhiteSpace(salt) ? Array.Empty<byte>() : Encoding.UTF8.GetBytes(salt);
@@ -26,7 +27,16 @@ namespace OnlineHasher
             byte[] hashBytes = Rfc2898DeriveBytes.Pbkdf2(
                 Encoding.UTF8.GetBytes(password), saltBytes, Iterations, HashAlgorithmName.SHA1, HashLength);
 
-            return Convert.ToHexString(hashBytes);
+            return HashResult.Success(Convert.ToHexString(hashBytes));
         }
+    }
+
+    public sealed record HashResult(string Hash, string Error)
+    {
+        public bool IsSuccess => Error is null;
+
+        public static HashResult Success(string hash) => new(hash, null);
+
+        public static HashResult Failure(string error) => new(null, error);
     }
 }
