@@ -1,0 +1,247 @@
+{
+  "settings": {
+    "components": {
+      "code": true,
+      "binaries": false
+    },
+    "targetId": "net10.0",
+    "targetDisplayName": ".NETCoreApp,Version=v10.0"
+  },
+  "analysisStartTime": "2026-10-11T18:15:48.7286484Z",
+  "analysisEndTime": "2026-10-11T18:15:50.5428271Z",
+  "privacyModeHelpUrl": "https://go.microsoft.com/fwlink/?linkid=2270980",
+  "stats": {
+    "summary": {
+      "projects": 1,
+      "issues": 3,
+      "incidents": 6,
+      "effort": 6
+    },
+    "charts": {
+      "severity": {
+        "Mandatory": 1,
+        "Optional": 1,
+        "Potential": 4,
+        "Information": 0
+      },
+      "category": {
+        "NuGet": 6
+      }
+    }
+  },
+  "projects": [
+    {
+      "path": "OnlineHasher\\OnlineHasher.csproj",
+      "startingProject": true,
+      "issues": 3,
+      "storyPoints": 6,
+      "properties": {
+        "appName": "OnlineHasher",
+        "projectKind": "AspNetCore",
+        "frameworks": [
+          "netstandard2.1"
+        ],
+        "languages": [
+          "C#"
+        ],
+        "tools": [
+          "MSBuild"
+        ],
+        "isSdkStyle": true,
+        "isTestProject": false,
+        "numberOfFiles": 14,
+        "numberOfCodeFiles": 1,
+        "linesTotal": 404,
+        "linesOfCode": 23,
+        "totalApiScanned": 2,
+        "minLinesOfCodeToChange": 0,
+        "maxLinesOfCodeToChange": 0
+      },
+      "ruleInstances": [
+        {
+          "incidentId": "2df6a8f3-aeea-45e6-8b2a-29b9a5141dbd",
+          "ruleId": "NuGet.0002",
+          "projectPath": "OnlineHasher\\OnlineHasher.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Microsoft.AspNetCore.Components.WebAssembly, 3.2.1\n\nRecommendation:\n\nRemove Microsoft.AspNetCore.Components.WebAssembly, and replace with new package Microsoft.AspNetCore.Components.WebAssembly 10.0.12",
+              "protected": "Microsoft.AspNetCore.Components.WebAssembly, 3.2.1\n\nRecommendation:\n\nRemove Microsoft.AspNetCore.Components.WebAssembly, and replace with new package Microsoft.AspNetCore.Components.WebAssembly 10.0.12"
+            },
+            "kind": "File",
+            "path": "OnlineHasher\\OnlineHasher.csproj",
+            "snippet": "Microsoft.AspNetCore.Components.WebAssembly, 3.2.1\n\nRecommendation:\n\nRemove Microsoft.AspNetCore.Components.WebAssembly, and replace with new package Microsoft.AspNetCore.Components.WebAssembly 10.0.12",
+            "protectedSnippet": "Microsoft.AspNetCore.Components.WebAssembly, 3.2.1\n\nRecommendation:\n\nRemove Microsoft.AspNetCore.Components.WebAssembly, and replace with new package Microsoft.AspNetCore.Components.WebAssembly 10.0.12",
+            "label": "Microsoft.AspNetCore.Components.WebAssembly 3.2.1",
+            "properties": {
+              "PackageId": "Microsoft.AspNetCore.Components.WebAssembly",
+              "PackageVersion": "3.2.1",
+              "PackageNewVersion": "10.0.12",
+              "PackageReplacements": null
+            }
+          }
+        },
+        {
+          "incidentId": "7bf75168-2fb2-4f79-900d-d8f68a8f6650",
+          "ruleId": "NuGet.0003",
+          "projectPath": "OnlineHasher\\OnlineHasher.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Microsoft.AspNetCore.Components.WebAssembly.Build, 3.2.1\n\nRecommendation:\n\nPackage functionality included with new framework reference",
+              "protected": "Microsoft.AspNetCore.Components.WebAssembly.Build, 3.2.1\n\nRecommendation:\n\nPackage functionality included with new framework reference"
+            },
+            "kind": "File",
+            "path": "OnlineHasher\\OnlineHasher.csproj",
+            "snippet": "Microsoft.AspNetCore.Components.WebAssembly.Build, 3.2.1\n\nRecommendation:\n\nPackage functionality included with new framework reference",
+            "protectedSnippet": "Microsoft.AspNetCore.Components.WebAssembly.Build, 3.2.1\n\nRecommendation:\n\nPackage functionality included with new framework reference",
+            "label": "Microsoft.AspNetCore.Components.WebAssembly.Build 3.2.1",
+            "properties": {
+              "PackageId": "Microsoft.AspNetCore.Components.WebAssembly.Build",
+              "PackageVersion": "3.2.1",
+              "PackageNewVersion": null,
+              "PackageReplacements": null
+            }
+          }
+        },
+        {
+          "incidentId": "532e0d46-8fbf-4641-8877-77f9025838ca",
+          "ruleId": "NuGet.0002",
+          "projectPath": "OnlineHasher\\OnlineHasher.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Microsoft.AspNetCore.Components.WebAssembly.DevServer, 3.2.1\n\nRecommendation:\n\nRemove Microsoft.AspNetCore.Components.WebAssembly.DevServer, and replace with new package Microsoft.AspNetCore.Components.WebAssembly.DevServer 10.0.12",
+              "protected": "Microsoft.AspNetCore.Components.WebAssembly.DevServer, 3.2.1\n\nRecommendation:\n\nRemove Microsoft.AspNetCore.Components.WebAssembly.DevServer, and replace with new package Microsoft.AspNetCore.Components.WebAssembly.DevServer 10.0.12"
+            },
+            "kind": "File",
+            "path": "OnlineHasher\\OnlineHasher.csproj",
+            "snippet": "Microsoft.AspNetCore.Components.WebAssembly.DevServer, 3.2.1\n\nRecommendation:\n\nRemove Microsoft.AspNetCore.Components.WebAssembly.DevServer, and replace with new package Microsoft.AspNetCore.Components.WebAssembly.DevServer 10.0.12",
+            "protectedSnippet": "Microsoft.AspNetCore.Components.WebAssembly.DevServer, 3.2.1\n\nRecommendation:\n\nRemove Microsoft.AspNetCore.Components.WebAssembly.DevServer, and replace with new package Microsoft.AspNetCore.Components.WebAssembly.DevServer 10.0.12",
+            "label": "Microsoft.AspNetCore.Components.WebAssembly.DevServer 3.2.1",
+            "properties": {
+              "PackageId": "Microsoft.AspNetCore.Components.WebAssembly.DevServer",
+              "PackageVersion": "3.2.1",
+              "PackageNewVersion": "10.0.12",
+              "PackageReplacements": null
+            }
+          }
+        },
+        {
+          "incidentId": "a3070974-ac9c-4205-bee6-b5df5e8d6c9f",
+          "ruleId": "NuGet.0002",
+          "projectPath": "OnlineHasher\\OnlineHasher.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "Microsoft.AspNetCore.Cryptography.KeyDerivation, 3.1.6\n\nRecommendation:\n\nRemove Microsoft.AspNetCore.Cryptography.KeyDerivation, and replace with new package Microsoft.AspNetCore.Cryptography.KeyDerivation 10.0.12",
+              "protected": "Microsoft.AspNetCore.Cryptography.KeyDerivation, 3.1.6\n\nRecommendation:\n\nRemove Microsoft.AspNetCore.Cryptography.KeyDerivation, and replace with new package Microsoft.AspNetCore.Cryptography.KeyDerivation 10.0.12"
+            },
+            "kind": "File",
+            "path": "OnlineHasher\\OnlineHasher.csproj",
+            "snippet": "Microsoft.AspNetCore.Cryptography.KeyDerivation, 3.1.6\n\nRecommendation:\n\nRemove Microsoft.AspNetCore.Cryptography.KeyDerivation, and replace with new package Microsoft.AspNetCore.Cryptography.KeyDerivation 10.0.12",
+            "protectedSnippet": "Microsoft.AspNetCore.Cryptography.KeyDerivation, 3.1.6\n\nRecommendation:\n\nRemove Microsoft.AspNetCore.Cryptography.KeyDerivation, and replace with new package Microsoft.AspNetCore.Cryptography.KeyDerivation 10.0.12",
+            "label": "Microsoft.AspNetCore.Cryptography.KeyDerivation 3.1.6",
+            "properties": {
+              "PackageId": "Microsoft.AspNetCore.Cryptography.KeyDerivation",
+              "PackageVersion": "3.1.6",
+              "PackageNewVersion": "10.0.12",
+              "PackageReplacements": null
+            }
+          }
+        },
+        {
+          "incidentId": "54839877-604a-4448-9333-44e3e860e64b",
+          "ruleId": "NuGet.0002",
+          "projectPath": "OnlineHasher\\OnlineHasher.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "System.Net.Http.Json, 3.2.0\n\nRecommendation:\n\nRemove System.Net.Http.Json, and replace with new package System.Net.Http.Json 10.0.12",
+              "protected": "System.Net.Http.Json, 3.2.0\n\nRecommendation:\n\nRemove System.Net.Http.Json, and replace with new package System.Net.Http.Json 10.0.12"
+            },
+            "kind": "File",
+            "path": "OnlineHasher\\OnlineHasher.csproj",
+            "snippet": "System.Net.Http.Json, 3.2.0\n\nRecommendation:\n\nRemove System.Net.Http.Json, and replace with new package System.Net.Http.Json 10.0.12",
+            "protectedSnippet": "System.Net.Http.Json, 3.2.0\n\nRecommendation:\n\nRemove System.Net.Http.Json, and replace with new package System.Net.Http.Json 10.0.12",
+            "label": "System.Net.Http.Json 3.2.0",
+            "properties": {
+              "PackageId": "System.Net.Http.Json",
+              "PackageVersion": "3.2.0",
+              "PackageNewVersion": "10.0.12",
+              "PackageReplacements": null
+            }
+          }
+        },
+        {
+          "incidentId": "5fb47b7f-f535-4239-b64f-573e97cef40b",
+          "ruleId": "NuGet.0005",
+          "projectPath": "OnlineHasher\\OnlineHasher.csproj",
+          "state": "Active",
+          "location": {
+            "snippetModel": {
+              "unrestricted": "System.Net.Http.Json, 3.2.0\n\nRecommendation:\n\nThis package has been deprecated as part of the .NET Package Deprecation effort. You can learn more about it from https://github.com/dotnet/announcements/issues/217\nRemove System.Net.Http.Json, and replace with new package System.Net.Http.Json, 10.0.12",
+              "protected": "System.Net.Http.Json, 3.2.0\n\nRecommendation:\n\nThis package has been deprecated as part of the .NET Package Deprecation effort. You can learn more about it from https://github.com/dotnet/announcements/issues/217\nRemove System.Net.Http.Json, and replace with new package System.Net.Http.Json, 10.0.12"
+            },
+            "kind": "File",
+            "path": "OnlineHasher\\OnlineHasher.csproj",
+            "snippet": "System.Net.Http.Json, 3.2.0\n\nRecommendation:\n\nThis package has been deprecated as part of the .NET Package Deprecation effort. You can learn more about it from https://github.com/dotnet/announcements/issues/217\nRemove System.Net.Http.Json, and replace with new package System.Net.Http.Json, 10.0.12",
+            "protectedSnippet": "System.Net.Http.Json, 3.2.0\n\nRecommendation:\n\nThis package has been deprecated as part of the .NET Package Deprecation effort. You can learn more about it from https://github.com/dotnet/announcements/issues/217\nRemove System.Net.Http.Json, and replace with new package System.Net.Http.Json, 10.0.12",
+            "label": "System.Net.Http.Json 3.2.0",
+            "properties": {
+              "PackageId": "System.Net.Http.Json",
+              "PackageVersion": "3.2.0",
+              "PackageNewVersion": null,
+              "PackageReplacements": null
+            }
+          }
+        }
+      ],
+      "features": []
+    }
+  ],
+  "rules": {
+    "NuGet.0002": {
+      "id": "NuGet.0002",
+      "isFeature": false,
+      "description": "NuGet package upgrade is recommended for selected target framework.\n\nStandard .NET packages are recommended to have versions matching version of .NET that project targets.\n\nSome other packages also are known to work better for selected target frameworks.",
+      "label": "NuGet package upgrade is recommended",
+      "severity": "Potential",
+      "effort": 1,
+      "links": [
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262530",
+          "isCustom": false
+        }
+      ]
+    },
+    "NuGet.0003": {
+      "id": "NuGet.0003",
+      "isFeature": false,
+      "description": "NuGet package functionality is included with framework reference.\n\nPackage needs to be removed.",
+      "label": "NuGet package functionality is included with framework reference",
+      "severity": "Mandatory",
+      "effort": 1,
+      "links": [
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262609",
+          "isCustom": false
+        }
+      ]
+    },
+    "NuGet.0005": {
+      "id": "NuGet.0005",
+      "isFeature": false,
+      "description": "NuGet package is deprecated.\n\nGo to its documentation and if there is a guidance for replacement of functionality provided by this package.",
+      "label": "NuGet package is deprecated",
+      "severity": "Optional",
+      "effort": 1,
+      "links": [
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262531",
+          "isCustom": false
+        }
+      ]
+    }
+  }
+}

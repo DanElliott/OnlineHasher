@@ -1,0 +1,211 @@
+{
+  "packageGovernance": {
+    "totalDistinctPackages": 5,
+    "totalVersionDriftInstances": 0,
+    "targetFramework": "net10.0",
+    "packages": [
+      {
+        "name": "Microsoft.AspNetCore.Components.WebAssembly",
+        "totalProjectCount": 1,
+        "distinctVersionCount": 1,
+        "recommendedVersion": "10.0.12",
+        "isCompatible": true,
+        "description": "NuGet package upgrade is recommended",
+        "versions": [
+          {
+            "version": "3.2.1",
+            "projects": [
+              "OnlineHasher"
+            ],
+            "isRecommended": false
+          }
+        ],
+        "upgrade": {
+          "newVersion": "10.0.12"
+        }
+      },
+      {
+        "name": "Microsoft.AspNetCore.Components.WebAssembly.Build",
+        "totalProjectCount": 1,
+        "distinctVersionCount": 1,
+        "recommendedVersion": "3.2.1",
+        "isCompatible": true,
+        "description": "NuGet package functionality is included with framework reference",
+        "versions": [
+          {
+            "version": "3.2.1",
+            "projects": [
+              "OnlineHasher"
+            ],
+            "isRecommended": true
+          }
+        ]
+      },
+      {
+        "name": "Microsoft.AspNetCore.Components.WebAssembly.DevServer",
+        "totalProjectCount": 1,
+        "distinctVersionCount": 1,
+        "recommendedVersion": "10.0.12",
+        "isCompatible": true,
+        "description": "NuGet package upgrade is recommended",
+        "versions": [
+          {
+            "version": "3.2.1",
+            "projects": [
+              "OnlineHasher"
+            ],
+            "isRecommended": false
+          }
+        ],
+        "upgrade": {
+          "newVersion": "10.0.12"
+        }
+      },
+      {
+        "name": "Microsoft.AspNetCore.Cryptography.KeyDerivation",
+        "totalProjectCount": 1,
+        "distinctVersionCount": 1,
+        "recommendedVersion": "10.0.12",
+        "isCompatible": true,
+        "description": "NuGet package upgrade is recommended",
+        "versions": [
+          {
+            "version": "3.1.6",
+            "projects": [
+              "OnlineHasher"
+            ],
+            "isRecommended": false
+          }
+        ],
+        "upgrade": {
+          "newVersion": "10.0.12"
+        }
+      },
+      {
+        "name": "System.Net.Http.Json",
+        "totalProjectCount": 1,
+        "distinctVersionCount": 1,
+        "recommendedVersion": "10.0.12",
+        "isCompatible": true,
+        "description": "NuGet package upgrade is recommended",
+        "versions": [
+          {
+            "version": "3.2.0",
+            "projects": [
+              "OnlineHasher"
+            ],
+            "isRecommended": false
+          }
+        ],
+        "upgrade": {
+          "newVersion": "10.0.12"
+        }
+      }
+    ]
+  },
+  "projects": [
+    {
+      "name": "OnlineHasher",
+      "path": "OnlineHasher\\OnlineHasher.csproj",
+      "isSdk": true,
+      "currentFrameworks": [
+        "netstandard2.1"
+      ],
+      "targetFramework": "net10.0",
+      "dependencies": {
+        "packages": [
+          {
+            "name": "Microsoft.AspNetCore.Components.WebAssembly",
+            "version": "3.2.1",
+            "isTransitive": false,
+            "isGlobal": false,
+            "isImplicit": false,
+            "definedIn": [
+              {
+                "path": "OnlineHasher\\OnlineHasher.csproj"
+              }
+            ],
+            "description": "NuGet package upgrade is recommended",
+            "compatibility": "valid",
+            "recommendedVersion": "10.0.12",
+            "upgrade": {
+              "newVersion": "10.0.12"
+            }
+          },
+          {
+            "name": "Microsoft.AspNetCore.Components.WebAssembly.Build",
+            "version": "3.2.1",
+            "isTransitive": false,
+            "isGlobal": false,
+            "isImplicit": false,
+            "definedIn": [
+              {
+                "path": "OnlineHasher\\OnlineHasher.csproj"
+              }
+            ],
+            "description": "NuGet package functionality is included with framework reference",
+            "compatibility": "valid",
+            "recommendedVersion": ""
+          },
+          {
+            "name": "Microsoft.AspNetCore.Components.WebAssembly.DevServer",
+            "version": "3.2.1",
+            "isTransitive": false,
+            "isGlobal": false,
+            "isImplicit": false,
+            "definedIn": [
+              {
+                "path": "OnlineHasher\\OnlineHasher.csproj"
+              }
+            ],
+            "description": "NuGet package upgrade is recommended",
+            "compatibility": "valid",
+            "recommendedVersion": "10.0.12",
+            "upgrade": {
+              "newVersion": "10.0.12"
+            }
+          },
+          {
+            "name": "Microsoft.AspNetCore.Cryptography.KeyDerivation",
+            "version": "3.1.6",
+            "isTransitive": false,
+            "isGlobal": false,
+            "isImplicit": false,
+            "definedIn": [
+              {
+                "path": "OnlineHasher\\OnlineHasher.csproj"
+              }
+            ],
+            "description": "NuGet package upgrade is recommended",
+            "compatibility": "valid",
+            "recommendedVersion": "10.0.12",
+            "upgrade": {
+              "newVersion": "10.0.12"
+            }
+          },
+          {
+            "name": "System.Net.Http.Json",
+            "version": "3.2.0",
+            "isTransitive": false,
+            "isGlobal": false,
+            "isImplicit": false,
+            "definedIn": [
+              {
+                "path": "OnlineHasher\\OnlineHasher.csproj"
+              }
+            ],
+            "description": "NuGet package upgrade is recommended",
+            "compatibility": "valid",
+            "recommendedVersion": "10.0.12",
+            "upgrade": {
+              "newVersion": "10.0.12"
+            }
+          }
+        ],
+        "assemblies": [],
+        "projectReferences": [],
+        "frameworkReferences": []
+      }
+    }
+  ]
+}
