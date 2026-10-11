@@ -15,31 +15,19 @@
         <input type="submit" value="Generate hash" />
     </EditForm>
 
-@if (!string.IsNullOrWhiteSpace(hasherModel.Hash))
+@if (!string.IsNullOrWhiteSpace(hash))
 {
     <label for="hash">Hash</label>
-    <output contenteditable="true" id="hash">@hasherModel.Hash</output>
+    <output contenteditable="true" id="hash">@hash</output>
 }
 
 @code {
     private HasherModel hasherModel = new HasherModel();
+    private string hash;
 
     private void HandleValidSubmit()
     {
-        if (!string.IsNullOrEmpty(hasherModel.Password))
-        {
-            byte[] saltBytes = string.IsNullOrWhiteSpace(hasherModel.Salt) ? new byte[0] : Encoding.UTF8.GetBytes(hasherModel.Salt);
-
-            byte[] hashBytes = KeyDerivation.Pbkdf2(
-                password: hasherModel.Password,
-                salt: saltBytes,
-                prf: KeyDerivationPrf.HMACSHA1,
-                iterationCount: 1000,
-                numBytesRequested: 256 / 8
-            );
-
-            hasherModel.Hash = BitConverter.ToString(hashBytes).Replace("-", string.Empty);
-        }
+        hash = PasswordHasher.Hash(hasherModel.Password, hasherModel.Salt);
     }
 
     public class HasherModel
@@ -48,7 +36,5 @@
         public string Password { get; set; }
 
         public string Salt { get; set; }
-
-        public string Hash { get; set; }
     }
 }
